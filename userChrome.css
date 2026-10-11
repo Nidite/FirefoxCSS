@@ -40,9 +40,13 @@ display: none !important;
   --tabpanel-background-color: transparent !important;
 }
 
-/* Tab separators */
-.tabbrowser-tab{
+/* Tab separators: only between tabs, never before the first one -- CLAUDE */
+.tabbrowser-tab {
   border-inline-start: 1px solid transparent !important;
+  border-image: none !important;
+}
+
+.tabbrowser-tab ~ .tabbrowser-tab {
   border-image: 0 1 linear-gradient(
     transparent 20%,
     color-mix(in srgb, currentColor 20%, transparent) 20%,
@@ -51,14 +55,15 @@ display: none !important;
   ) !important;
 }
 
+/* Hide separators next to hovered / selected / multiselected tabs -- CLAUDE */
 .tabbrowser-tab:hover,
-#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab:hover + .tabbrowser-tab:not([first-visible-unpinned-tab]),
-.tabbrowser-tab:first-child,
 .tabbrowser-tab[selected],
 .tabbrowser-tab[multiselected],
-#tabbrowser-arrowscrollbox[overflowing] > .tabbrowser-tab[first-visible-unpinned-tab],
-#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab[multiselected] + .tabbrowser-tab,
-#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab[selected] + .tabbrowser-tab { border-image: none !important; }
+#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab:hover + .tabbrowser-tab,
+#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab[selected] + .tabbrowser-tab,
+#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab[multiselected] + .tabbrowser-tab {
+  border-image: none !important;
+}
 
 :root {
   --urlbarview-background-color-selected: light-dark(#2d1b47, #2d1b47) !important;
