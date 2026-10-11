@@ -1,0 +1,65 @@
+/* Hide bookmark star */
+#star-button-box { display:none !important; }
+
+/* Hide reader view */
+#reader-mode-button{ display: none !important }
+
+/* Hide top left spacer */
+.titlebar-spacer[type="pre-tabs"] { display: none !important; } 
+
+/* Hide Search with Google placeholder in URL bar */
+#urlbar-input::placeholder{ color: transparent }
+
+#context-back, #context-forward, #context-reload, #context-sep-navigation, 
+#context-pocket, #context-bookmarklink, #context-bookmarkpage, #context-savelink, 
+#context-savelinktopocket, #context-openlinkprivate, #context-print-selection, 
+#context-openlinkinsplitview, #context-sendimage, #context-inspect-a11y{ 
+display: none !important 
+}
+
+/* Hide blue URL border */
+.urlbar  {
+	--toolbar-field-border-color-focus: none !important;
+}
+
+/* Hide close button */
+tab:not(:hover,[selected]) .close-icon {
+  display: none !important;
+}
+
+/* Hide extension speech */
+#urlbar #identity-box.extensionPage #identity-icon-label {
+display: none !important;
+}
+#identity-icon-box {
+display: none !important;
+}
+
+/* Remove separator */
+:root {
+  --tabpanel-background-color: transparent !important;
+}
+
+/* Tab separators */
+.tabbrowser-tab{
+  border-inline-start: 1px solid transparent !important;
+  border-image: 0 1 linear-gradient(
+    transparent 20%,
+    color-mix(in srgb, currentColor 20%, transparent) 20%,
+    color-mix(in srgb, currentColor 20%, transparent) 80%,
+    transparent 80%
+  ) !important;
+}
+
+.tabbrowser-tab:hover,
+#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab:hover + .tabbrowser-tab:not([first-visible-unpinned-tab]),
+.tabbrowser-tab:first-child,
+.tabbrowser-tab[selected],
+.tabbrowser-tab[multiselected],
+#tabbrowser-arrowscrollbox[overflowing] > .tabbrowser-tab[first-visible-unpinned-tab],
+#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab[multiselected] + .tabbrowser-tab,
+#tabbrowser-tabs:not([movingtab]) .tabbrowser-tab[selected] + .tabbrowser-tab { border-image: none !important; }
+
+:root {
+  --urlbarview-background-color-selected: light-dark(#2d1b47, #2d1b47) !important;
+}
